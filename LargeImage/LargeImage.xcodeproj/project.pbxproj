@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BF4B94724F353E000A1EDE8 /* JerTiledImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF4B94624F353E000A1EDE8 /* JerTiledImageView.m */; };
 		EE17DC9B21C9E83D006937B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE17DC9A21C9E83D006937B8 /* AppDelegate.m */; };
 		EE17DC9E21C9E83D006937B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE17DC9D21C9E83D006937B8 /* ViewController.m */; };
 		EE17DCA121C9E83D006937B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE17DC9F21C9E83D006937B8 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BF4B94524F353E000A1EDE8 /* JerTiledImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JerTiledImageView.h; sourceTree = "<group>"; };
+		4BF4B94624F353E000A1EDE8 /* JerTiledImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JerTiledImageView.m; sourceTree = "<group>"; };
 		EE17DC9621C9E83D006937B8 /* LargeImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LargeImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE17DC9921C9E83D006937B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EE17DC9A21C9E83D006937B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 				EE17DCA721C9E83E006937B8 /* Info.plist */,
 				EE17DCA821C9E83E006937B8 /* main.m */,
 				EE17DCD121C9E85F006937B8 /* bigbig.jpg */,
+				4BF4B94524F353E000A1EDE8 /* JerTiledImageView.h */,
+				4BF4B94624F353E000A1EDE8 /* JerTiledImageView.m */,
 			);
 			path = LargeImage;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				EE17DC9E21C9E83D006937B8 /* ViewController.m in Sources */,
 				EE17DCA921C9E83E006937B8 /* main.m in Sources */,
 				EE17DC9B21C9E83D006937B8 /* AppDelegate.m in Sources */,
+				4BF4B94724F353E000A1EDE8 /* JerTiledImageView.m in Sources */,
 				EE17DCCF21C9E85A006937B8 /* TiledImageView.m in Sources */,
 				EE17DCD021C9E85A006937B8 /* ImageScrollView.m in Sources */,
 			);
@@ -452,12 +458,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76GWNQM659;
 				INFOPLIST_FILE = LargeImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gpy.LargeImage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LargeImage.jer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -468,12 +475,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76GWNQM659;
 				INFOPLIST_FILE = LargeImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gpy.LargeImage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LargeImage.jer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
