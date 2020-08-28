@@ -8,30 +8,26 @@
 
 #import "ViewController.h"
 #import "ImageScrollView.h"
+#import "JerTiledImageView.h"
 
 @interface ViewController ()
-@property (nonatomic, strong) ImageScrollView *scrollView;
+@property (nonatomic, strong) JerTiledImageView *tileView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    //        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://pic1.win4000.com/wallpaper/2018-12-17/5c1731baae242.jpg"]]];
-    //        dispatch_async(dispatch_get_main_queue(), ^{
-    //            if (image) {
-    //                // do something with image
-    //                self.scrollView = [[ImageScrollView alloc] initWithFrame:self.view.bounds image:image];
-    //                [self.view addSubview:self.scrollView];
-    //            }
-    //        });
-    //    });
-    UIImage *iamge = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bigbig" ofType:@"jpg"]];
-    self.scrollView = [[ImageScrollView alloc] initWithFrame:self.view.bounds image:iamge];
-    [self.view addSubview:self.scrollView];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.view addSubview:self.tileView];
 }
 
-
+- (JerTiledImageView *)tileView {
+    if (!_tileView) {
+        UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bigbig" ofType:@"jpg"]];
+        CGRect imageRect = CGRectMake(0.0f,0.0f,CGImageGetWidth(image.CGImage),CGImageGetHeight(image.CGImage));
+        CGFloat scale = self.view.bounds.size.width/imageRect.size.width;
+        _tileView = [[JerTiledImageView alloc]initWithFrame:self.view.bounds image:image scale:scale];
+    }
+    return _tileView;
+}
 @end

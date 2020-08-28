@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JerTiledImageView : UIView
-- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image;
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image scale:(CGFloat)scale;
 @end
 
 NS_ASSUME_NONNULL_END

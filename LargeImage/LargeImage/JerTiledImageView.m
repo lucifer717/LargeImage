@@ -17,10 +17,14 @@
 @implementation JerTiledImageView
 
 
-- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image scale:(CGFloat)scale
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.imageRect = CGRectMake(0.0f, 0.0f,
+                                CGImageGetWidth(self.image.CGImage),
+                                CGImageGetHeight(self.image.CGImage));
+        self.imageScale = scale;
         [self commonInit:image];
     }
     return self;
@@ -31,19 +35,18 @@
 - (void)commonInit:(UIImage*)image {
     self.image = image;
     CATiledLayer *tiledLayer = (CATiledLayer *)[self layer];
-    tiledLayer.levelsOfDetail = 1;//默认可以不传
-    tiledLayer.levelsOfDetailBias = 0;//默认可以不传
-    tiledLayer.contentsScale = [UIScreen mainScreen].scale;
+    int lev = ceil(log2(1/self.imageScale))+1;
+    tiledLayer.levelsOfDetail = 1;
+    tiledLayer.levelsOfDetailBias = lev;
     tiledLayer.tileSize = [self getTitleSize:image];
-    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {
      @autoreleasepool{
-         CGRect imageCutRect = CGRectMake(rect.origin.x,
-                                          rect.origin.y,
-                                          rect.size.width,
-                                          rect.size.height);
+         CGRect imageCutRect = CGRectMake(rect.origin.x/_imageScale,
+                                          rect.origin.y/_imageScale,
+                                          rect.size.width/_imageScale,
+                                          rect.size.height/_imageScale);
          CGImageRef imageRef = CGImageCreateWithImageInRect(self.image.CGImage, imageCutRect);
          UIImage *tileImage = [UIImage imageWithCGImage:imageRef];
          CGContextRef context = UIGraphicsGetCurrentContext();
